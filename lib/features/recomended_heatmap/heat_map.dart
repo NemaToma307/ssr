@@ -1,4 +1,3 @@
-import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:ssr_project/component/style/size_colors.dart';
@@ -7,6 +6,8 @@ import '../../component/widgets/widgets.dart';
 
 
 class heatMap extends StatefulWidget {
+  const heatMap({Key? key}) : super(key: key);
+
 
   @override
   State<heatMap> createState() => _heatMapState();
@@ -34,10 +35,10 @@ class _heatMapState extends State<heatMap> {
                       onPressed: (){
                         setState(() {
                         });
-                      }, icon: Icon(Icons.place_outlined , color: Colors.black,)),
+                      }, icon: const Icon(Icons.place_outlined , color: Colors.black,)),
                 ),
               ) ,
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               CircleAvatar(
@@ -48,13 +49,13 @@ class _heatMapState extends State<heatMap> {
                   child: IconButton(
                       onPressed: () {
                       },
-                      icon: Icon(Icons.flag_outlined , color: Colors.black,)
+                      icon: const Icon(Icons.flag_outlined , color: Colors.black,)
                   ),
                 ),
               )
             ],
           ),
-          SizedBox(
+          const SizedBox(
             width: 20,
           ),
           Expanded(
@@ -64,7 +65,7 @@ class _heatMapState extends State<heatMap> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   AppBarName('UserName'),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   Container(
@@ -75,7 +76,7 @@ class _heatMapState extends State<heatMap> {
                         borderRadius: BorderRadius.circular(40)
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 9,
                   ),
                   Row(
@@ -103,7 +104,7 @@ class _heatMapState extends State<heatMap> {
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 5,
                       ),
                       Container(
@@ -128,7 +129,7 @@ class _heatMapState extends State<heatMap> {
                       )
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 13,
                   ),
                   Container(
@@ -176,7 +177,7 @@ class _heatMapState extends State<heatMap> {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
 
@@ -195,7 +196,7 @@ class _heatMapState extends State<heatMap> {
   }
 
   Widget Cards(numbers , text , icon) => Container(
-    margin: EdgeInsets.only(
+    margin: const EdgeInsets.only(
       top: 20,
       left: 20,
       right: 20
@@ -216,7 +217,7 @@ class _heatMapState extends State<heatMap> {
           child: Column(
             children: [
               Text(numbers , style: bigBlueTextStyle,),
-              SizedBox(height: 10,),
+              const SizedBox(height: 10,),
               Text(text , style: smallGrayTextStyle,)
             ],
           ),
@@ -227,7 +228,7 @@ class _heatMapState extends State<heatMap> {
     ),
   );
   Widget Cards2(numbers , text , icon) => Container(
-    margin: EdgeInsets.only(
+    margin: const EdgeInsets.only(
         top: 20,
         left: 20,
         right: 20
@@ -249,7 +250,7 @@ class _heatMapState extends State<heatMap> {
           child: Column(
             children: [
               Text(numbers , style: bigBlueTextStyle,),
-              SizedBox(height: 10,),
+              const SizedBox(height: 10,),
               Text(text , style: smallGrayTextStyle,)
             ],
           ),

@@ -1,5 +1,3 @@
-import 'dart:html';
-import 'dart:ui';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:ssr_project/component/style/size_colors.dart';
@@ -8,6 +6,8 @@ import '../../component/widgets/widgets.dart';
 
 
 class compareHeatMap extends StatefulWidget {
+  const compareHeatMap({Key? key}) : super(key: key);
+
 
   @override
   State<compareHeatMap> createState() => _compareHeatMapState();
@@ -42,7 +42,7 @@ class _compareHeatMapState extends State<compareHeatMap> {
 
   FlTitlesData _getTitles() {
     return FlTitlesData(
-      leftTitles: AxisTitles(
+      leftTitles: const AxisTitles(
         sideTitles: SideTitles(showTitles: true, reservedSize: 40),
       ),
       bottomTitles: AxisTitles(
@@ -59,7 +59,8 @@ class _compareHeatMapState extends State<compareHeatMap> {
               "Airports"
             ];
             return SideTitleWidget(
-              axisSide: meta.axisSide,
+              //axisSide: meta.axisSide,
+              meta: meta,
               child: Text(labels[value.toInt()], style: smallBlackTextStyle),
             );
           },
@@ -91,10 +92,10 @@ class _compareHeatMapState extends State<compareHeatMap> {
                       onPressed: (){
                         setState(() {
                         });
-                      }, icon: Icon(Icons.place_outlined , color: Colors.black,)),
+                      }, icon: const Icon(Icons.place_outlined , color: Colors.black,)),
                 ),
               ) ,
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               CircleAvatar(
@@ -105,11 +106,11 @@ class _compareHeatMapState extends State<compareHeatMap> {
                   child: IconButton(
                       onPressed: () {
                       },
-                      icon: Icon(Icons.flag_outlined , color: Colors.black,)
+                      icon: const Icon(Icons.flag_outlined , color: Colors.black,)
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               CircleAvatar(
@@ -120,13 +121,13 @@ class _compareHeatMapState extends State<compareHeatMap> {
                   child: IconButton(
                       onPressed: () {
                       },
-                      icon: Icon(Icons.compare_arrows , color: Colors.black,)
+                      icon: const Icon(Icons.compare_arrows , color: Colors.black,)
                   ),
                 ),
               )
             ],
           ),
-          SizedBox(
+          const SizedBox(
             width: 20,
           ),
           Expanded(
@@ -136,7 +137,7 @@ class _compareHeatMapState extends State<compareHeatMap> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                  AppBarName('User Name'),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   Row(
@@ -147,7 +148,7 @@ class _compareHeatMapState extends State<compareHeatMap> {
                         width: _width/3,
                         decoration: BoxDecoration(
                           color:  selectedButton == 'Recommendation' ? Colors.blue.shade100 : Colors.blue.shade50,
-                          borderRadius: BorderRadius.only(
+                          borderRadius: const BorderRadius.only(
                               topLeft: Radius.circular(20),
                               topRight: Radius.circular(20)
                           ),
@@ -160,7 +161,7 @@ class _compareHeatMapState extends State<compareHeatMap> {
                             });
 
                           },
-                          child: Text('Recommendation' , style: TextStyle(fontSize: 14,color: Colors.black , fontWeight: FontWeight.bold),),
+                          child: const Text('Recommendation' , style: TextStyle(fontSize: 14,color: Colors.black , fontWeight: FontWeight.bold),),
                         ),
                       ),
                       Container(
@@ -168,7 +169,7 @@ class _compareHeatMapState extends State<compareHeatMap> {
                         width: _width/3,
                         decoration: BoxDecoration(
                           color: selectedButton == 'Demography' ? Colors.blue.shade100 : Colors.blue.shade50,
-                          borderRadius: BorderRadius.only(
+                          borderRadius: const BorderRadius.only(
                               topLeft: Radius.circular(20),
                               topRight: Radius.circular(20)
                           ),
@@ -179,7 +180,7 @@ class _compareHeatMapState extends State<compareHeatMap> {
                               selectedButton = 'Demography';
                             });
                           },
-                          child: Text('Dynamics' , style: TextStyle(fontSize: 14,color: Colors.black , fontWeight: FontWeight.bold),),
+                          child: const Text('Dynamics' , style: TextStyle(fontSize: 14,color: Colors.black , fontWeight: FontWeight.bold),),
                         ),
                       )
                     ],
@@ -195,7 +196,7 @@ class _compareHeatMapState extends State<compareHeatMap> {
                         )
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 9,
                   ),
                   Row(
@@ -210,7 +211,7 @@ class _compareHeatMapState extends State<compareHeatMap> {
                             BoxShadow(
                               color: Colors.black.withOpacity(0.2),
                               blurRadius: 5,
-                              offset: Offset(5, 5),
+                              offset: const Offset(5, 5),
                             ),
                           ],
                         ),
@@ -236,7 +237,7 @@ class _compareHeatMapState extends State<compareHeatMap> {
                                         color: Colors.indigo.shade900,
                                         radius: 40,
                                         title: '55%',
-                                        titleStyle: TextStyle(
+                                        titleStyle: const TextStyle(
                                           fontSize: 16,
                                           fontWeight: FontWeight.bold,
                                           color: Colors.white,
@@ -247,7 +248,7 @@ class _compareHeatMapState extends State<compareHeatMap> {
                                         color: Colors.blueGrey.shade400,
                                         radius: 40,
                                         title: '45%',
-                                        titleStyle: TextStyle(
+                                        titleStyle: const TextStyle(
                                           fontSize: 16,
                                           fontWeight: FontWeight.bold,
                                           color: Colors.white,
@@ -264,7 +265,7 @@ class _compareHeatMapState extends State<compareHeatMap> {
                           ],
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 5,
                       ),
                       Container(
@@ -277,7 +278,7 @@ class _compareHeatMapState extends State<compareHeatMap> {
                             BoxShadow(
                               color: Colors.black.withOpacity(0.2),
                               blurRadius: 5,
-                              offset: Offset(5, 5),
+                              offset: const Offset(5, 5),
                             ),
                           ],
                         ),
@@ -332,18 +333,18 @@ class _compareHeatMapState extends State<compareHeatMap> {
                                           getTitlesWidget: (value, meta) {
                                             return Text(
                                               '\$${value.toInt()}',
-                                              style: TextStyle(color: Colors.black, fontSize: 12),
+                                              style: const TextStyle(color: Colors.black, fontSize: 12),
                                             );
                                           },
                                         ),
                                       ),
-                                      bottomTitles: AxisTitles(
+                                      bottomTitles: const AxisTitles(
                                         sideTitles: SideTitles(showTitles: false),
                                       ),
-                                      topTitles: AxisTitles(
+                                      topTitles: const AxisTitles(
                                         sideTitles: SideTitles(showTitles: false),
                                       ),
-                                      rightTitles: AxisTitles(
+                                      rightTitles: const AxisTitles(
                                         sideTitles: SideTitles(showTitles: false),
                                       ),
                                     ),
@@ -359,11 +360,11 @@ class _compareHeatMapState extends State<compareHeatMap> {
                                     barTouchData: BarTouchData(
                                       enabled: true,
                                       touchTooltipData: BarTouchTooltipData(
-                                        tooltipBgColor: Colors.white,
+                                        //tooltipBgColor: Colors.white,
                                         getTooltipItem: (group, groupIndex, rod, rodIndex) {
                                           return BarTooltipItem(
                                             '\$${rod.toY}',
-                                            TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+                                            const TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
                                           );
                                         },
                                       ),
@@ -378,7 +379,7 @@ class _compareHeatMapState extends State<compareHeatMap> {
                       )
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 13,
                   ),
                   Row(
@@ -393,7 +394,7 @@ class _compareHeatMapState extends State<compareHeatMap> {
                             BoxShadow(
                               color: Colors.black.withOpacity(0.2),
                               blurRadius: 5,
-                              offset: Offset(5, 5),
+                              offset: const Offset(5, 5),
                             ),
                           ],
                         ),
@@ -410,7 +411,7 @@ class _compareHeatMapState extends State<compareHeatMap> {
                           ],
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 5,
                       ),
                       Container(
@@ -423,7 +424,7 @@ class _compareHeatMapState extends State<compareHeatMap> {
                             BoxShadow(
                               color: Colors.black.withOpacity(0.2),
                               blurRadius: 5,
-                              offset: Offset(5, 5),
+                              offset: const Offset(5, 5),
                             ),
                           ],
                         ),
@@ -447,7 +448,7 @@ class _compareHeatMapState extends State<compareHeatMap> {
                                   BoxShadow(
                                     color: Colors.black.withOpacity(0.2),
                                     blurRadius: 5,
-                                    offset: Offset(5, 5),
+                                    offset: const Offset(5, 5),
                                   ),
                                 ],
                               ),
@@ -455,11 +456,11 @@ class _compareHeatMapState extends State<compareHeatMap> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Text('8000' , style: TextStyle(fontSize: 25,color: Colors.white,fontWeight: FontWeight.bold),),
+                                  const Text('8000' , style: TextStyle(fontSize: 25,color: Colors.white,fontWeight: FontWeight.bold),),
                                   SizedBox(
                                     width: _width/9,
                                   ),
-                                  Icon(Icons.people , size: 40,color: Colors.white,)
+                                  const Icon(Icons.people , size: 40,color: Colors.white,)
                                 ],
                               ),
                             ),
@@ -476,7 +477,7 @@ class _compareHeatMapState extends State<compareHeatMap> {
                                   BoxShadow(
                                     color: Colors.black.withOpacity(0.2),
                                     blurRadius: 5,
-                                    offset: Offset(5, 5),
+                                    offset: const Offset(5, 5),
                                   ),
                                 ],
                               ),
@@ -484,11 +485,11 @@ class _compareHeatMapState extends State<compareHeatMap> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Icon(Icons.people , size: 40, color: Colors.white,),
+                                  const Icon(Icons.people , size: 40, color: Colors.white,),
                                   SizedBox(
                                     width: _width/9,
                                   ),
-                                  Text('8000' , style: TextStyle(fontSize: 25,color: Colors.white,fontWeight: FontWeight.bold),),
+                                  const Text('8000' , style: TextStyle(fontSize: 25,color: Colors.white,fontWeight: FontWeight.bold),),
 
                                 ],
                               ),
@@ -498,7 +499,7 @@ class _compareHeatMapState extends State<compareHeatMap> {
                       )
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 13,
                   ),
                   Container(
@@ -511,7 +512,7 @@ class _compareHeatMapState extends State<compareHeatMap> {
                         BoxShadow(
                           color: Colors.black.withOpacity(0.2),
                           blurRadius: 5,
-                          offset: Offset(5, 5),
+                          offset: const Offset(5, 5),
                         ),
                       ],
                     ),
@@ -531,7 +532,7 @@ class _compareHeatMapState extends State<compareHeatMap> {
                                 barGroups: _getBarGroups(),
                                 titlesData: _getTitles(),
                                 borderData: FlBorderData(show: false),
-                                gridData: FlGridData(show: true, drawHorizontalLine: true),
+                                gridData: const FlGridData(show: true, drawHorizontalLine: true),
                               ),
                             ),
                           ),

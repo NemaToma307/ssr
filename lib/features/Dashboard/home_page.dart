@@ -9,6 +9,8 @@ import '../my_business/business_page.dart';
 import '../setting/setting_section.dart';
 
 class homePage extends StatefulWidget {
+  const homePage({Key? key}) : super(key: key);
+
 
   @override
   State<homePage> createState() => _homePageState();
@@ -56,10 +58,10 @@ class _homePageState extends State<homePage> {
             ),
             child: Column(
               children: [
-                DrawerHeader(
+                const DrawerHeader(
                   decoration: BoxDecoration(color: Colors.white),
                   child: Row(
-                    children: const [
+                    children: [
                       CircleAvatar(radius: 30, backgroundColor: Colors.grey),
                       SizedBox(width: 10),
                       Text("Logo ", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
@@ -76,7 +78,7 @@ class _homePageState extends State<homePage> {
                       ],
                     )
                 ),
-                Divider(),
+                const Divider(),
                 DrawerItem(4 , _selectedIndex , Icons.help_outline_outlined , 'Help Center' , _onItemTapped),
                 DrawerItem(5 , _selectedIndex , Icons.chat , 'Contact Us' , _onItemTapped),
                 DrawerItem(6 , _selectedIndex , Icons.logout , 'Log out' , _onItemTapped),
@@ -87,10 +89,10 @@ class _homePageState extends State<homePage> {
           Expanded(
             child: Container(
               color: Colors.grey.shade100,
-              child:  _selectedIndex == 0 ?   placePage()
-               :   _selectedIndex == 1 ? facilities()
-               :  _selectedIndex == 2 ? businessPage()
-               : setting()
+              child:  _selectedIndex == 0 ?   const placePage()
+               :   _selectedIndex == 1 ? const facilities()
+               :  _selectedIndex == 2 ? const businessPage()
+               : const setting()
               //_pages[_selectedIndex]
               // _pages[_selectedIndex] == 0 ? Navigator.pushNamed(context, '/second') :
               // _pages[_selectedIndex] == 1 ? facilities() :

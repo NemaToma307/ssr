@@ -1,9 +1,11 @@
 
-
-import 'dart:ui';
-import 'package:awesome_dialog/awesome_dialog.dart';
-
-import 'package:flutter/cupertino.dart';
+// import 'dart:ui_web' as ui;
+//
+// import 'dart:html' as html;
+//
+// //import 'dart:ui';
+// import 'package:awesome_dialog/awesome_dialog.dart';
+// //import 'dart:ui' as ui; // استيراد ui platform view
 import 'package:flutter/material.dart';
 import 'package:ssr_project/component/style/size_colors.dart';
 
@@ -11,6 +13,8 @@ import '../../component/widgets/widgets.dart';
 import 'business_form.dart';
 
 class placePage extends StatefulWidget {
+  const placePage({Key? key}) : super(key: key);
+
 
   @override
   State<placePage> createState() => _placePageState();
@@ -55,7 +59,7 @@ class _placePageState extends State<placePage> {
                     height: 50,
                     width: 50,
                     child: IconButton(
-                        constraints: BoxConstraints(),
+                        constraints: const BoxConstraints(),
                         padding: EdgeInsets.zero,
                         onPressed: (){
                           setState(() {
@@ -68,7 +72,7 @@ class _placePageState extends State<placePage> {
                   ),
                 ),
               ) ,
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               CircleAvatar(
@@ -97,7 +101,7 @@ class _placePageState extends State<placePage> {
             ],
           ),
         ),
-        SizedBox(
+        const SizedBox(
           width: 20,
         ),
         Expanded(
@@ -109,7 +113,7 @@ class _placePageState extends State<placePage> {
                 padding: const EdgeInsets.only(top: 15),
                 child: AppBarName('UserName')
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               if(flag)
@@ -150,7 +154,7 @@ class _placePageState extends State<placePage> {
                           width: _width*1.2,
                           decoration: BoxDecoration(
                             color: Colors.blue.shade50,
-                            borderRadius: BorderRadius.only(
+                            borderRadius: const BorderRadius.only(
                                 topLeft: Radius.circular(20),
                                 topRight: Radius.circular(20)
                             ),
@@ -161,7 +165,7 @@ class _placePageState extends State<placePage> {
                           width: _width/5,
                           decoration: BoxDecoration(
                             color: Colors.blue.shade100,
-                            borderRadius: BorderRadius.only(
+                            borderRadius: const BorderRadius.only(
                                 topLeft: Radius.circular(20),
                                 topRight: Radius.circular(20)
                             ),
@@ -172,7 +176,7 @@ class _placePageState extends State<placePage> {
                               showDialog(
                                   context: context,
                                   builder: (BuildContext context) {
-                                    return businessForm();
+                                    return  businessForm();
                                   });
                               // Navigator.push(
                               //   context,
@@ -183,7 +187,7 @@ class _placePageState extends State<placePage> {
 
                              // showDialogWidget(context);
                             },
-                            child: Text('+' , style: TextStyle(fontSize: 24,color: Colors.black , fontWeight: FontWeight.bold),),
+                            child: const Text('+' , style: TextStyle(fontSize: 24,color: Colors.black , fontWeight: FontWeight.bold),),
                           ),
                         ),
                       ],
@@ -191,22 +195,31 @@ class _placePageState extends State<placePage> {
                     Container(
                       width: _width*1.2,
                       height: _hight,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           color: Colors.pink,
                           borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(40),
                             bottomRight: Radius.circular(40),
                           )
                       ),
+                      // child: ClipRRect(
+                      //   borderRadius: BorderRadius.only(
+                      //     bottomLeft: Radius.circular(40),
+                      //     bottomRight: Radius.circular(40),
+                      //   ),
+                      //   child: HtmlElementView(
+                      //     viewType: 'iframeElement',
+                      //   ),
+                      // ),
                     )
                   ],
                 ):
-              SizedBox(
+                SizedBox(
                 height: _hight,
                 width: _width*1.3,
                 child: GridView.builder(
-                  padding: EdgeInsets.all(16),
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  padding: const EdgeInsets.all(16),
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     crossAxisSpacing: 100,
                     mainAxisSpacing: 80,
@@ -226,10 +239,10 @@ class _placePageState extends State<placePage> {
                                 borderRadius: BorderRadius.circular(10),
 
                               ),
-                              child: Column(
+                              child: const Column(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 crossAxisAlignment: CrossAxisAlignment.end,
-                                children: const [
+                                children: [
                                   Center(child: Padding(
                                     padding: EdgeInsets.only(
                                         bottom: 5
@@ -254,7 +267,7 @@ class _placePageState extends State<placePage> {
 
                                 ),
                                 child: Center(
-                                  child: Text("map here44 $index", style: TextStyle(color: Colors.black)),
+                                  child: Text("map here44 $index", style: const TextStyle(color: Colors.black)),
                                 ),
                               ),
                             ),
@@ -273,261 +286,41 @@ class _placePageState extends State<placePage> {
       ],
     );
   }
-  //
-  // Future<void> showDialogWidget(BuildContext context) => showDialog(
-  //     context: context,
-  //     builder: (BuildContext context) {
-  //       return Dialog(
-  //         shape: RoundedRectangleBorder(
-  //           borderRadius: BorderRadius.circular(20.0),
-  //         ),
-  //         child: Container(
-  //           width: 900,
-  //           height: 500,
-  //           padding: EdgeInsets.all(20.0),
-  //           child: SingleChildScrollView(
-  //             child: Column(
-  //               mainAxisSize: MainAxisSize.min,
-  //               children: [
-  //                 Row(
-  //                   children: [
-  //                     Text('Let us Help you find the perfect location',
-  //                         style: bigBlueTextStyle),
-  //                   ],
-  //                 ),
-  //                 SizedBox(height: 30.0),
-  //                 Padding(
-  //                   padding: const EdgeInsets.only(left: 40),
-  //                   child: Column(children: [
-  //                     bidTitle('Business Information', smallBlueTextStyle),
-  //                     Divider(),
-  //                     SizedBox(height: 25.0),
-  //                     smallTitle('Business name', smallGrayTextStyle),
-  //                     SizedBox(height: 5),
-  //                     Row(
-  //                       children: [
-  //                         Container(
-  //                           width: 300,
-  //                           child: TextField(
-  //                             decoration: InputDecoration(
-  //                               hintText: "Name",
-  //                               border: OutlineInputBorder(
-  //                                 borderRadius: BorderRadius.circular(10),
-  //                                 borderSide: BorderSide(color: Colors.grey),
-  //                               ),
-  //                               contentPadding: EdgeInsets.symmetric(
-  //                                   horizontal: 12, vertical: 15),
-  //                             ),
-  //                           ),
-  //                         ),
-  //                       ],
-  //                     ),
-  //                     SizedBox(height: 50),
-  //                     bidTitle('Budget', smallBlueTextStyle),
-  //                     Divider(),
-  //                     SizedBox(height: 25.0),
-  //                     smallTitle('Rental Budget for month', smallGrayTextStyle),
-  //                     SizedBox(
-  //                       width: 800,
-  //                       child: Slider(
-  //                         value: maxValueRange.toDouble(),
-  //                         onChanged: (value) {
-  //                           setState(() {
-  //                             maxValueRange = value.toInt();
-  //
-  //                             value = maxValueRange.toDouble();
-  //
-  //                             print("Slider value: $maxValueRange");
-  //
-  //                             // html.window.location.reload();
-  //                           });
-  //                         },
-  //                         min: 0,
-  //                         max: 100000,
-  //                       ),
-  //                     ),
-  //                     Row(
-  //                       mainAxisAlignment: MainAxisAlignment.end,
-  //                       children: [
-  //                         Padding(
-  //                           padding: const EdgeInsets.only(right: 30),
-  //                           child: Text(
-  //                               "Range : " + maxValueRange.toString() + " SR",
-  //                               style: const TextStyle(
-  //                                   fontSize: 12,
-  //                                   color: Colors.black,
-  //                                   fontWeight: FontWeight.bold)),
-  //                         ),
-  //                       ],
-  //                     ),
-  //                     SizedBox(height: 50),
-  //                     bidTitle('Business Type', smallBlueTextStyle),
-  //                     SizedBox(height: 5),
-  //                     DropdownButtonFormField<String>(
-  //                       value: dropDownValue,
-  //                       decoration: InputDecoration(
-  //                         border: OutlineInputBorder(
-  //                           borderRadius: BorderRadius.circular(10),
-  //                           borderSide: BorderSide(color: Colors.grey),
-  //                         ),
-  //                         contentPadding:
-  //                         EdgeInsets.symmetric(horizontal: 12, vertical: 15),
-  //                       ),
-  //                       hint: Text("Select Business Type"),
-  //                       items: items.map<DropdownMenuItem<String>>((String type) {
-  //                         return DropdownMenuItem<String>(
-  //                           value: type,
-  //                           child: Text(type),
-  //                         );
-  //                       }).toList(),
-  //                       onChanged: (String? value) {
-  //                         setState(() {
-  //                           dropDownValue = value!;
-  //                         });
-  //                       },
-  //                     ),
-  //                     SizedBox(height: 50),
-  //                     bidTitle('Accessibility Preference', smallBlueTextStyle),
-  //                     Divider(),
-  //                     SizedBox(height: 25.0),
-  //                     Row(
-  //                       children: [
-  //                         SizedBox(
-  //                           width: 300,
-  //                           height: 200,
-  //                           child: ListView.builder(
-  //                             itemCount: options.length,
-  //                             itemBuilder: (context, index) {
-  //                               return upCheck(options[index]["title"],
-  //                                   options[index]["isChecked"]);
-  //                             },
-  //                           ),
-  //                         ),
-  //                       ],
-  //                     ),
-  //                     bidTitle('Accessibility Preference', smallBlueTextStyle),
-  //                     Divider(),
-  //                     SizedBox(
-  //                       width: 800,
-  //                       height: 160,
-  //                       child: GridView.builder(
-  //                         //scrollDirection : Axis.horizontal,
-  //
-  //                         itemCount: options2.length,
-  //
-  //                         itemBuilder: (context, index) {
-  //                           return downCheck(options2[index]["title"],
-  //                               options2[index]["isChecked"]);
-  //                         },
-  //
-  //                         shrinkWrap: true,
-  //
-  //                         physics: const NeverScrollableScrollPhysics(),
-  //
-  //                         gridDelegate:
-  //                         const SliverGridDelegateWithFixedCrossAxisCount(
-  //                           crossAxisCount: 4,
-  //                           crossAxisSpacing: 10,
-  //                           mainAxisSpacing: 10,
-  //                           childAspectRatio: 3.5,
-  //                         ),
-  //                       ),
-  //                     ),
-  //                     bidTitle('Business Status', smallBlueTextStyle),
-  //                     const Divider(),
-  //                     const SizedBox(height: 5),
-  //                     DropdownButtonFormField<String>(
-  //                       value: statusValue,
-  //                       decoration: InputDecoration(
-  //                         border: OutlineInputBorder(
-  //                           borderRadius: BorderRadius.circular(10),
-  //                           borderSide: const BorderSide(color: Colors.grey),
-  //                         ),
-  //                         contentPadding: const EdgeInsets.symmetric(
-  //                             horizontal: 12, vertical: 15),
-  //                       ),
-  //                       hint: const Text("Select Business Status"),
-  //                       items: itemsStatus
-  //                           .map<DropdownMenuItem<String>>((String type) {
-  //                         return DropdownMenuItem<String>(
-  //                           value: type,
-  //                           child: Text(type),
-  //                         );
-  //                       }).toList(),
-  //                       onChanged: (String? value) {
-  //                         setState(() {
-  //                           statusValue = value;
-  //                         });
-  //                       },
-  //                     ),
-  //                   ]),
-  //                 ),
-  //                 SizedBox(height: 30.0),
-  //                 Center(
-  //                   child: Row(
-  //                     mainAxisAlignment: MainAxisAlignment.center,
-  //                     children: [
-  //                       Container(
-  //                         width: 90,
-  //                         height: 50,
-  //                         decoration: BoxDecoration(
-  //                           color: Colors.red,
-  //                           borderRadius: BorderRadius.circular(10),
-  //                         ),
-  //                         child: TextButton(
-  //                           child: Text(
-  //                             'Cancel',
-  //                             style: TextStyle(fontSize: 15, color: Colors.white),
-  //                           ),
-  //                           onPressed: () {
-  //                             Navigator.of(context).pop();
-  //                           },
-  //                         ),
-  //                       ),
-  //                       SizedBox(
-  //                         width: 30,
-  //                       ),
-  //                       Container(
-  //                         width: 90,
-  //                         height: 50,
-  //                         decoration: BoxDecoration(
-  //                           color: Colors.blue.shade900,
-  //                           borderRadius: BorderRadius.circular(10),
-  //                         ),
-  //                         child: TextButton(
-  //                           child: Text(
-  //                             'Next',
-  //                             style: TextStyle(fontSize: 15, color: Colors.white),
-  //                           ),
-  //                           onPressed: () {
-  //                             AwesomeDialog(
-  //                               width: 500,
-  //
-  //                               context: context,
-  //
-  //                               dialogType: DialogType.success,
-  //
-  //                               animType: AnimType.rightSlide,
-  //
-  //                               //title: '',
-  //
-  //                               desc: 'The operation was successful',
-  //
-  //                               //btnCancelOnPress: () {},
-  //
-  //                               btnOkOnPress: () {},
-  //                             ).show();
-  //                           },
-  //                         ),
-  //                       ),
-  //                     ],
-  //                   ),
-  //                 )
-  //               ],
-  //             ),
-  //           ),
-  //         ),
-  //       );
-  //     });
+
+
 
 }
+// اللي شغال
+// void registerIFrame() {
+//   html.IFrameElement iframe = html.IFrameElement()
+//     ..src = "assets/riyadh_heatmap.html"
+//     ..style.border = "none"
+//     ..style.width = "100%"
+//     ..style.height = "100%";
+//
+//   // تسجيل العنصر
+//   ui.platformViewRegistry.registerViewFactory(
+//     'iframeElement',
+//         (int viewId) => iframe,
+//   );
+// }
+
+
+
+// void registerIFrame() {
+//   // إنشاء عنصر iframe
+//   html.IFrameElement iframe = html.IFrameElement()
+//     ..src = "assets/map.html" // تحميل ملف الخريطة من assets
+//     ..style.border = "none"
+//     ..style.width = "100%"
+//     ..style.height = "100%";
+//
+//   // تسجيل العنصر باستخدام `setUrlStrategy`
+//   setUrlStrategy(PathUrlStrategy());
+//
+//   // تسجيل iframe في Flutter Web
+//   platformViewRegistry.registerViewFactory(
+//     'iframeElement',
+//         (int viewId) => iframe,
+//   );
+// }

@@ -1,7 +1,4 @@
 
-import 'dart:html' as html;
-import 'dart:ui';
-import 'package:flutter/src/material/dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:ssr_project/component/style/size_colors.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
@@ -18,7 +15,7 @@ class editBusinessForm extends StatefulWidget {
   String? preferences2;
   String? status;
 
-  editBusinessForm(nameArg , budgetArg , businessTypeArg , preferencesArgOne , preferencesArgTow  ,statusArg){
+  editBusinessForm(nameArg , budgetArg , businessTypeArg , preferencesArgOne , preferencesArgTow  ,statusArg, {Key? key}) : super(key: key){
    name         = nameArg;
    budget       = budgetArg;
    businessType = businessTypeArg;
@@ -81,7 +78,7 @@ class _editBusinessFormState extends State<editBusinessForm> {
       child: Container(
         width: 900,
         height: 500,
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         child: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -91,7 +88,7 @@ class _editBusinessFormState extends State<editBusinessForm> {
                   Text('Edit Business Preference', style: bigBlueTextStyle),
                 ],
               ),
-              SizedBox(height: 30.0),
+              const SizedBox(height: 30.0),
               Padding(
                 padding:  const EdgeInsets.only(
                     left: 40
@@ -99,13 +96,13 @@ class _editBusinessFormState extends State<editBusinessForm> {
                 child: Column(
                     children: [
                       bidTitle('Business Information', smallBlueTextStyle),
-                      Divider(),
-                      SizedBox(height: 25.0),
+                      const Divider(),
+                      const SizedBox(height: 25.0),
                       smallTitle('Business name' ,smallGrayTextStyle),
-                      SizedBox(height: 5),
+                      const SizedBox(height: 5),
                       Row(
                         children: [
-                          Container(
+                          SizedBox(
                             width: 300,
                             child: TextField(
                               controller: nameEditingController,
@@ -113,18 +110,18 @@ class _editBusinessFormState extends State<editBusinessForm> {
                                 hintText: widget.name,
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
-                                  borderSide: BorderSide(color: Colors.grey),
+                                  borderSide: const BorderSide(color: Colors.grey),
                                 ),
-                                contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 15),
+                                contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 15),
                               ),
                             ),
                           ),
                         ],
                       ),
-                      SizedBox(height: 50),
+                      const SizedBox(height: 50),
                       bidTitle('Budget', smallBlueTextStyle),
-                      Divider(),
-                      SizedBox(height: 25.0),
+                      const Divider(),
+                      const SizedBox(height: 25.0),
                       smallTitle('Rental Budget for month' ,smallGrayTextStyle),
                       SizedBox(
                         width: 800,
@@ -167,20 +164,20 @@ class _editBusinessFormState extends State<editBusinessForm> {
                           ),
                         ],
                       ),
-                      SizedBox(height: 50),
+                      const SizedBox(height: 50),
                       bidTitle('Business Type', smallBlueTextStyle),
-                      SizedBox(height: 5),
+                      const SizedBox(height: 5),
                       DropdownButtonFormField<String>(
                         value: widget.businessType!.contains('Cafe') ?  widget.businessType :
                         widget.businessType!.contains('Restaurant') ?  widget.businessType : dropDownValue,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide(color: Colors.grey),
+                            borderSide: const BorderSide(color: Colors.grey),
                           ),
-                          contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 15),
+                          contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 15),
                         ),
-                        hint: Text("Select Business Type"),
+                        hint: const Text("Select Business Type"),
                         items: items.map<DropdownMenuItem<String>>((String type) {
                           return DropdownMenuItem<String>(
                             value: type,
@@ -193,10 +190,10 @@ class _editBusinessFormState extends State<editBusinessForm> {
                           });
                         },
                       ),
-                      SizedBox(height: 50),
+                      const SizedBox(height: 50),
                       bidTitle('Accessibility Preference', smallBlueTextStyle),
-                      Divider(),
-                      SizedBox(height: 25.0),
+                      const Divider(),
+                      const SizedBox(height: 25.0),
                       Row(
                         children: [
                           SizedBox(
@@ -215,7 +212,7 @@ class _editBusinessFormState extends State<editBusinessForm> {
                         ],
                       ),
                       bidTitle('Accessibility Preference', smallBlueTextStyle),
-                      Divider(),
+                      const Divider(),
                       SizedBox(
                         width: 800,
                         height: 160,
@@ -267,7 +264,7 @@ class _editBusinessFormState extends State<editBusinessForm> {
                       ),
                     ]
                 ),),
-              SizedBox(height: 30.0),
+              const SizedBox(height: 30.0),
               Center(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -280,7 +277,7 @@ class _editBusinessFormState extends State<editBusinessForm> {
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: TextButton(
-                        child: Text(
+                        child: const Text(
                           'Back',
                           style: TextStyle(fontSize: 15 , color: Colors.white),
                         ),
@@ -289,7 +286,7 @@ class _editBusinessFormState extends State<editBusinessForm> {
                         },
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 30,
                     ),
                     Container(
@@ -300,7 +297,7 @@ class _editBusinessFormState extends State<editBusinessForm> {
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: TextButton(
-                        child: Text(
+                        child: const Text(
                           'Save',
                           style: TextStyle(fontSize: 15 , color: Colors.white),
                         ),
@@ -334,7 +331,7 @@ class _editBusinessFormState extends State<editBusinessForm> {
 
   Widget upCheck(text , index2 ) => Container(
     width: 300,
-    padding: EdgeInsets.all(10),
+    padding: const EdgeInsets.all(10),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -364,7 +361,7 @@ class _editBusinessFormState extends State<editBusinessForm> {
       ],
     ),
   );
-  Widget downCheck(text , index2 ) => Container(
+  Widget downCheck(text , index2 ) => SizedBox(
     width: 300,
     child: Padding(
       padding: const EdgeInsets.only(

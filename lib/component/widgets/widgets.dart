@@ -55,24 +55,24 @@ Widget Name() =>  Padding(
             radius: 15,
 
           ),
-          SizedBox(
+          const SizedBox(
             width: 25,
           ),
-          smallTitle('Sign',  TextStyle(fontSize: 14,color: Colors.black , fontWeight: FontWeight.bold))
+          smallTitle('Sign',  const TextStyle(fontSize: 14,color: Colors.black , fontWeight: FontWeight.bold))
           //Text('Sign' , style: smallBlackTextStyle,),
         ],
       ),
       const SizedBox(width: 30,),
       Row(
         children: [
-          CircleAvatar(
+          const CircleAvatar(
             backgroundColor:  Colors.grey,
             radius: 15,
           ),
-          SizedBox(
+          const SizedBox(
             width: 25,
           ),
-          smallTitle('Half Million',  TextStyle(fontSize: 14,color: Colors.black , fontWeight: FontWeight.bold))
+          smallTitle('Half Million',  const TextStyle(fontSize: 14,color: Colors.black , fontWeight: FontWeight.bold))
           //Text('Sign' , style: smallBlackTextStyle,),
         ],
       )
@@ -83,8 +83,55 @@ Widget Name() =>  Padding(
 
 Widget AppBarName(text) =>  Row(
   children:  [
-    CircleAvatar(radius: 30, backgroundColor: Colors.grey),
-    SizedBox(width: 15),
+    const CircleAvatar(radius: 30, backgroundColor: Colors.grey),
+    const SizedBox(width: 15),
     Text(text, style: smallBlackTextStyle),
   ],
+);
+
+Widget fillBlank (context)=> Dialog(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20.0),
+        ),
+        child: Container(
+          width: 60,
+          height: 150,
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Center(
+                child: Text('Please fill the blank'),
+              ),
+              const SizedBox(height: 25.0),
+              Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 90,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: Colors.red,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: TextButton(
+                        child: const Text(
+                          'Back',
+                          style: TextStyle(fontSize: 15 , color: Colors.white),
+                        ),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              )
+
+
+            ],
+          ),
+        ),
+
 );

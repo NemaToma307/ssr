@@ -1,5 +1,3 @@
-import 'dart:html';
-import 'dart:ui';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:ssr_project/component/style/size_colors.dart';
@@ -7,6 +5,8 @@ import 'package:ssr_project/component/widgets/widgets.dart';
 import 'package:fl_chart/fl_chart.dart';
 
 class reviews extends StatefulWidget {
+  const reviews({Key? key}) : super(key: key);
+
   @override
   State<reviews> createState() => _reviewsState();
 }
@@ -47,12 +47,12 @@ class _reviewsState extends State<reviews> {
                                 child: Container(
                                   width: 900,
                                   height: 600,
-                                  padding: EdgeInsets.all(20.0),
+                                  padding: const EdgeInsets.all(20.0),
                                   child: SingleChildScrollView(
                                     child: Column(
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
-                                        SizedBox(height: 15.0),
+                                        const SizedBox(height: 15.0),
                                         Padding(
                                           padding:
                                               const EdgeInsets.only(left: 40),
@@ -60,12 +60,16 @@ class _reviewsState extends State<reviews> {
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.start,
                                               children: [
-                                                SizedBox(height: 15.0),
-                                                Container(
+                                                const SizedBox(height: 15.0),
+                                                SizedBox(
                                                   width: 400,
                                                   child: TextField(
-                                                    controller:
-                                                        brunchNameControllerInReview,
+                                                    controller: brunchNameControllerInReview,
+                                                    // onChanged: (val) {
+                                                    //   setState(() {
+                                                    //     brunchNameControllerInReview.text = val;
+                                                    //   });
+                                                    // },
                                                     decoration: InputDecoration(
                                                       hintText: "Brunch Name",
                                                       border:
@@ -73,17 +77,17 @@ class _reviewsState extends State<reviews> {
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(10),
-                                                        borderSide: BorderSide(
+                                                        borderSide: const BorderSide(
                                                             color: Colors.grey),
                                                       ),
                                                       contentPadding:
-                                                          EdgeInsets.symmetric(
+                                                          const EdgeInsets.symmetric(
                                                               horizontal: 12,
                                                               vertical: 15),
                                                     ),
                                                   ),
                                                 ),
-                                                SizedBox(height: 10.0),
+                                                const SizedBox(height: 10.0),
                                                 Container(
                                                   width: _width / 1,
                                                   height: _hight / 1.5,
@@ -95,7 +99,7 @@ class _reviewsState extends State<reviews> {
                                                 )
                                               ]),
                                         ),
-                                        SizedBox(height: 30.0),
+                                        const SizedBox(height: 30.0),
                                         Center(
                                           child: Row(
                                             mainAxisAlignment:
@@ -110,7 +114,7 @@ class _reviewsState extends State<reviews> {
                                                       BorderRadius.circular(10),
                                                 ),
                                                 child: TextButton(
-                                                  child: Text(
+                                                  child: const Text(
                                                     'Cancel',
                                                     style: TextStyle(
                                                         fontSize: 15,
@@ -121,7 +125,7 @@ class _reviewsState extends State<reviews> {
                                                   },
                                                 ),
                                               ),
-                                              SizedBox(
+                                              const SizedBox(
                                                 width: 30,
                                               ),
                                               Container(
@@ -133,47 +137,49 @@ class _reviewsState extends State<reviews> {
                                                       BorderRadius.circular(10),
                                                 ),
                                                 child: TextButton(
-                                                    child: Text(
+                                                    child: const Text(
                                                       'Submit',
                                                       style: TextStyle(
                                                           fontSize: 15,
                                                           color: Colors.white),
                                                     ),
                                                     onPressed: () {
-                                                      showDialog(
-                                                          context: context,
-                                                          builder: (BuildContext
-                                                              context) {
-                                                            return Dialog(
-                                                              shape:
-                                                                  RoundedRectangleBorder(
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
+                                                      brunchNameControllerInReview
+                                                                  .text !=
+                                                              ''
+                                                          ? showDialog(
+                                                              context: context,
+                                                              builder:
+                                                                  (BuildContext
+                                                                      context) {
+                                                                return Dialog(
+                                                                  shape:
+                                                                      RoundedRectangleBorder(
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
                                                                             20.0),
-                                                              ),
-                                                              child: Container(
-                                                                width: 900,
-                                                                height: 500,
-                                                                padding:
-                                                                    EdgeInsets
-                                                                        .all(
+                                                                  ),
+                                                                  child:
+                                                                      Container(
+                                                                    width: 900,
+                                                                    height: 500,
+                                                                    padding:
+                                                                        const EdgeInsets.all(
                                                                             20.0),
-                                                                child:
-                                                                    SingleChildScrollView(
-                                                                  child: Column(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .min,
-                                                                    children: [
-                                                                      SizedBox(
-                                                                          height:
-                                                                              15.0),
-                                                                      Padding(
-                                                                        padding:
-                                                                            const EdgeInsets.symmetric(horizontal: 40),
-                                                                        child: Column(
-                                                                            children: [
+                                                                    child:
+                                                                        SingleChildScrollView(
+                                                                      child:
+                                                                          Column(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.min,
+                                                                        children: [
+                                                                          const SizedBox(
+                                                                              height: 15.0),
+                                                                          Padding(
+                                                                            padding:
+                                                                                const EdgeInsets.symmetric(horizontal: 40),
+                                                                            child:
+                                                                                Column(children: [
                                                                               Row(
                                                                                 children: [
                                                                                   Container(
@@ -186,7 +192,7 @@ class _reviewsState extends State<reviews> {
                                                                                         BoxShadow(
                                                                                           color: Colors.black.withOpacity(0.2),
                                                                                           blurRadius: 10,
-                                                                                          offset: Offset(5, 5),
+                                                                                          offset: const Offset(5, 5),
                                                                                         ),
                                                                                       ],
                                                                                     ),
@@ -215,7 +221,7 @@ class _reviewsState extends State<reviews> {
                                                                                                     color: Colors.indigo.shade900,
                                                                                                     radius: 40,
                                                                                                     title: '55%',
-                                                                                                    titleStyle: TextStyle(
+                                                                                                    titleStyle: const TextStyle(
                                                                                                       fontSize: 16,
                                                                                                       fontWeight: FontWeight.bold,
                                                                                                       color: Colors.white,
@@ -226,7 +232,7 @@ class _reviewsState extends State<reviews> {
                                                                                                     color: Colors.blueGrey.shade400,
                                                                                                     radius: 40,
                                                                                                     title: '45%',
-                                                                                                    titleStyle: TextStyle(
+                                                                                                    titleStyle: const TextStyle(
                                                                                                       fontSize: 16,
                                                                                                       fontWeight: FontWeight.bold,
                                                                                                       color: Colors.white,
@@ -246,7 +252,7 @@ class _reviewsState extends State<reviews> {
                                                                                       ],
                                                                                     ),
                                                                                   ),
-                                                                                  SizedBox(width: 15.0),
+                                                                                  const SizedBox(width: 15.0),
                                                                                   Container(
                                                                                     width: _width / 4,
                                                                                     height: _hight / 2,
@@ -257,7 +263,7 @@ class _reviewsState extends State<reviews> {
                                                                                         BoxShadow(
                                                                                           color: Colors.black.withOpacity(0.2),
                                                                                           blurRadius: 10,
-                                                                                          offset: Offset(5, 5),
+                                                                                          offset: const Offset(5, 5),
                                                                                         ),
                                                                                       ],
                                                                                     ),
@@ -292,7 +298,7 @@ class _reviewsState extends State<reviews> {
                                                                                               SizedBox(
                                                                                                 width: _width / 9,
                                                                                               ),
-                                                                                              Icon(
+                                                                                              const Icon(
                                                                                                 Icons.people,
                                                                                                 size: 40,
                                                                                               )
@@ -313,7 +319,7 @@ class _reviewsState extends State<reviews> {
                                                                                             crossAxisAlignment: CrossAxisAlignment.center,
                                                                                             mainAxisAlignment: MainAxisAlignment.center,
                                                                                             children: [
-                                                                                              Icon(
+                                                                                              const Icon(
                                                                                                 Icons.people,
                                                                                                 size: 40,
                                                                                               ),
@@ -330,140 +336,140 @@ class _reviewsState extends State<reviews> {
                                                                                         const SizedBox(
                                                                                           height: 15,
                                                                                         ),
-                                                                                       Name()
+                                                                                        Name()
                                                                                       ],
                                                                                     ),
                                                                                   ),
                                                                                 ],
                                                                               ),
                                                                             ]),
-                                                                      ),
-                                                                      SizedBox(
-                                                                          height:
-                                                                              30.0),
-                                                                      Center(
-                                                                        child:
-                                                                            Container(
-                                                                          width:
-                                                                              _width / 4,
-                                                                          height:
-                                                                              _hight / 2,
-                                                                          decoration:
-                                                                              BoxDecoration(
-                                                                            color:
-                                                                                Colors.white,
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(40),
-                                                                            boxShadow: [
-                                                                              BoxShadow(
-                                                                                color: Colors.black.withOpacity(0.2),
-                                                                                blurRadius: 10,
-                                                                                offset: Offset(5, 5),
-                                                                              ),
-                                                                            ],
                                                                           ),
-                                                                          child:
-                                                                              Column(
-                                                                            children: [
-                                                                              Padding(
-                                                                                padding: const EdgeInsets.all(22.0),
-                                                                                child: bidTitle('Review', bigBlueTextStyle),
+                                                                          const SizedBox(
+                                                                              height: 30.0),
+                                                                          Center(
+                                                                            child:
+                                                                                Container(
+                                                                              width: _width / 4,
+                                                                              height: _hight / 2,
+                                                                              decoration: BoxDecoration(
+                                                                                color: Colors.white,
+                                                                                borderRadius: BorderRadius.circular(40),
+                                                                                boxShadow: [
+                                                                                  BoxShadow(
+                                                                                    color: Colors.black.withOpacity(0.2),
+                                                                                    blurRadius: 10,
+                                                                                    offset: const Offset(5, 5),
+                                                                                  ),
+                                                                                ],
                                                                               ),
-                                                                              const SizedBox(
-                                                                                height: 25,
-                                                                              ),
-                                                                              SizedBox(
-                                                                                height: 200,
-                                                                                width: 200,
-                                                                                child: BarChart(
-                                                                                  BarChartData(
-                                                                                    //alignment: BarChartAlignment.spaceAround,
-                                                                                    maxY: 400,
-                                                                                    minY: 0,
-                                                                                    barGroups: [
-                                                                                      BarChartGroupData(
-                                                                                        x: 1,
-                                                                                        barRods: [
-                                                                                          BarChartRodData(
-                                                                                            toY: 18,
-                                                                                            color: Colors.indigo.shade900,
-                                                                                            width: 16,
-                                                                                            borderRadius: BorderRadius.circular(8),
+                                                                              child: Column(
+                                                                                children: [
+                                                                                  Padding(
+                                                                                    padding: const EdgeInsets.all(22.0),
+                                                                                    child: bidTitle('Review', bigBlueTextStyle),
+                                                                                  ),
+                                                                                  const SizedBox(
+                                                                                    height: 25,
+                                                                                  ),
+                                                                                  SizedBox(
+                                                                                    height: 200,
+                                                                                    width: 200,
+                                                                                    child: BarChart(
+                                                                                      BarChartData(
+                                                                                        //alignment: BarChartAlignment.spaceAround,
+                                                                                        maxY: 400,
+                                                                                        minY: 0,
+                                                                                        barGroups: [
+                                                                                          BarChartGroupData(
+                                                                                            x: 1,
+                                                                                            barRods: [
+                                                                                              BarChartRodData(
+                                                                                                toY: 18,
+                                                                                                color: Colors.indigo.shade900,
+                                                                                                width: 16,
+                                                                                                borderRadius: BorderRadius.circular(8),
+                                                                                              ),
+                                                                                            ],
+                                                                                          ),
+                                                                                          BarChartGroupData(
+                                                                                            x: 2,
+                                                                                            barRods: [
+                                                                                              BarChartRodData(
+                                                                                                toY: 14,
+                                                                                                color: Colors.blueGrey.shade400,
+                                                                                                width: 16,
+                                                                                                borderRadius: BorderRadius.circular(8),
+                                                                                              ),
+                                                                                            ],
                                                                                           ),
                                                                                         ],
-                                                                                      ),
-                                                                                      BarChartGroupData(
-                                                                                        x: 2,
-                                                                                        barRods: [
-                                                                                          BarChartRodData(
-                                                                                            toY: 14,
-                                                                                            color: Colors.blueGrey.shade400,
-                                                                                            width: 16,
-                                                                                            borderRadius: BorderRadius.circular(8),
+                                                                                        titlesData: FlTitlesData(
+                                                                                          leftTitles: AxisTitles(
+                                                                                            sideTitles: SideTitles(
+                                                                                              showTitles: true,
+                                                                                              reservedSize: 40,
+                                                                                              getTitlesWidget: (value, meta) {
+                                                                                                return Text(
+                                                                                                  '\$${value.toInt()}',
+                                                                                                  style: const TextStyle(color: Colors.black, fontSize: 12),
+                                                                                                );
+                                                                                              },
+                                                                                            ),
                                                                                           ),
-                                                                                        ],
-                                                                                      ),
-                                                                                    ],
-                                                                                    titlesData: FlTitlesData(
-                                                                                      leftTitles: AxisTitles(
-                                                                                        sideTitles: SideTitles(
-                                                                                          showTitles: true,
-                                                                                          reservedSize: 40,
-                                                                                          getTitlesWidget: (value, meta) {
-                                                                                            return Text(
-                                                                                              '\$${value.toInt()}',
-                                                                                              style: TextStyle(color: Colors.black, fontSize: 12),
-                                                                                            );
-                                                                                          },
+                                                                                          bottomTitles: const AxisTitles(
+                                                                                            sideTitles: SideTitles(showTitles: false),
+                                                                                          ),
+                                                                                          topTitles: const AxisTitles(
+                                                                                            sideTitles: SideTitles(showTitles: false),
+                                                                                          ),
+                                                                                          rightTitles: const AxisTitles(
+                                                                                            sideTitles: SideTitles(showTitles: false),
+                                                                                          ),
                                                                                         ),
-                                                                                      ),
-                                                                                      bottomTitles: AxisTitles(
-                                                                                        sideTitles: SideTitles(showTitles: false),
-                                                                                      ),
-                                                                                      topTitles: AxisTitles(
-                                                                                        sideTitles: SideTitles(showTitles: false),
-                                                                                      ),
-                                                                                      rightTitles: AxisTitles(
-                                                                                        sideTitles: SideTitles(showTitles: false),
-                                                                                      ),
-                                                                                    ),
-                                                                                    gridData: FlGridData(
-                                                                                      show: true,
-                                                                                      drawHorizontalLine: true,
-                                                                                      checkToShowHorizontalLine: (value) => true,
-                                                                                      getDrawingHorizontalLine: (value) => FlLine(
-                                                                                        color: Colors.grey.shade300,
-                                                                                        strokeWidth: 1,
-                                                                                      ),
-                                                                                    ),
-                                                                                    barTouchData: BarTouchData(
-                                                                                      enabled: true,
-                                                                                      touchTooltipData: BarTouchTooltipData(
-                                                                                        tooltipBgColor: Colors.white,
-                                                                                        getTooltipItem: (group, groupIndex, rod, rodIndex) {
-                                                                                          return BarTooltipItem(
-                                                                                            '\$${rod.toY}',
-                                                                                            TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
-                                                                                          );
-                                                                                        },
+                                                                                        gridData: FlGridData(
+                                                                                          show: true,
+                                                                                          drawHorizontalLine: true,
+                                                                                          checkToShowHorizontalLine: (value) => true,
+                                                                                          getDrawingHorizontalLine: (value) => FlLine(
+                                                                                            color: Colors.grey.shade300,
+                                                                                            strokeWidth: 1,
+                                                                                          ),
+                                                                                        ),
+                                                                                        barTouchData: BarTouchData(
+                                                                                          enabled: true,
+                                                                                          touchTooltipData: BarTouchTooltipData(
+                                                                                            //tooltipBgColor: Colors.white,
+                                                                                            getTooltipItem: (group, groupIndex, rod, rodIndex) {
+                                                                                              return BarTooltipItem(
+                                                                                                '\$${rod.toY}',
+                                                                                                const TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+                                                                                              );
+                                                                                            },
+                                                                                          ),
+                                                                                        ),
                                                                                       ),
                                                                                     ),
                                                                                   ),
-                                                                                ),
+                                                                                ],
                                                                               ),
-                                                                            ],
+                                                                            ),
                                                                           ),
-                                                                        ),
+                                                                          const SizedBox(
+                                                                              height: 30.0),
+                                                                        ],
                                                                       ),
-                                                                      SizedBox(
-                                                                          height:
-                                                                              30.0),
-                                                                    ],
+                                                                    ),
                                                                   ),
-                                                                ),
-                                                              ),
-                                                            );
-                                                          });
+                                                                );
+                                                              })
+                                                          : showDialog(
+                                                              context: context,
+                                                              builder:
+                                                                  (BuildContext
+                                                                      context) {
+                                                                return fillBlank(
+                                                                    context);
+                                                              });
                                                     }),
                                               ),
                                             ],
@@ -484,7 +490,7 @@ class _reviewsState extends State<reviews> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               Container(
@@ -497,7 +503,7 @@ class _reviewsState extends State<reviews> {
                     BoxShadow(
                       color: Colors.black.withOpacity(0.2),
                       blurRadius: 10,
-                      offset: Offset(5, 5),
+                      offset: const Offset(5, 5),
                     ),
                   ],
                 ),
@@ -532,7 +538,7 @@ class _reviewsState extends State<reviews> {
                     BoxShadow(
                       color: Colors.black.withOpacity(0.2),
                       blurRadius: 10,
-                      offset: Offset(5, 5),
+                      offset: const Offset(5, 5),
                     ),
                   ],
                 ),
@@ -558,7 +564,7 @@ class _reviewsState extends State<reviews> {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: TextButton(
-                  child: Text(
+                  child: const Text(
                     'Delete',
                     style: TextStyle(fontSize: 15, color: Colors.white),
                   ),

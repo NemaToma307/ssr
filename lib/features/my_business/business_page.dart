@@ -1,14 +1,14 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:ssr_project/component/style/size_colors.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:ssr_project/features/my_business/reviews.dart';
 import '../../component/widgets/widgets.dart';
-import '../place_ecommendation/business_form.dart';
 import '../place_ecommendation/edit_business_form.dart';
 
 
 class businessPage extends StatefulWidget {
+  const businessPage({Key? key}) : super(key: key);
+
 
   @override
   State<businessPage> createState() => _businessPageState();
@@ -49,17 +49,22 @@ class _businessPageState extends State<businessPage> {
                 if (_isButtonVisible)
                   CircleAvatar(
                     backgroundColor: Colors.black,
-                    radius: 21,
+                    radius: 33,
                     child: CircleAvatar(
+                      radius: 31,
                       backgroundColor: Colors.grey.shade300,
-                      child: IconButton(
-                        onPressed: () {
-                          // Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(builder: (context) => businessForm()),
-                          // );
-                        },
-                        icon: const Icon(Icons.add, color: Colors.black),
+                      child: SizedBox(
+                        height: 50,
+                        width: 50,
+                        child: IconButton(
+                          onPressed: () {
+                            // Navigator.push(
+                            //   context,
+                            //   MaterialPageRoute(builder: (context) => businessForm()),
+                            // );
+                          },
+                          icon: const Icon(Icons.add, color: Colors.black , size: 37,),
+                        ),
                       ),
                     ),
                   ),
@@ -155,13 +160,18 @@ class _businessPageState extends State<businessPage> {
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
                                         Text('Select Brunch' ,style: smallGrayTextStyle),
-                                        SizedBox(height: 5),
+                                        const SizedBox(height: 5),
                                         Row(
                                           children: [
-                                            Container(
+                                            SizedBox(
                                               width: 400,
                                               child: TextField(
                                                 controller: brunchController ,
+                                                // onChanged: (val) {
+                                                //   setState(() {
+                                                //     brunchController.text = val ;
+                                                //   });
+                                                // },
                                                 decoration: InputDecoration(
                                                   //hintText: "Name",
                                                   border: OutlineInputBorder(
@@ -174,8 +184,8 @@ class _businessPageState extends State<businessPage> {
                                             ),
                                           ],
                                         ),
-                                        SizedBox(
-                                          height: 40,
+                                        const SizedBox(
+                                          height: 30,
                                         ),
                                         Center(
                                           child: Row(
@@ -189,7 +199,7 @@ class _businessPageState extends State<businessPage> {
                                                   borderRadius: BorderRadius.circular(10),
                                                 ),
                                                 child: TextButton(
-                                                  child: Text(
+                                                  child: const Text(
                                                     'Cancel',
                                                     style: TextStyle(fontSize: 15 , color: Colors.white),
                                                   ),
@@ -198,7 +208,7 @@ class _businessPageState extends State<businessPage> {
                                                   },
                                                 ),
                                               ),
-                                              SizedBox(
+                                              const SizedBox(
                                                 width: 30,
                                               ),
                                               Container(
@@ -209,139 +219,146 @@ class _businessPageState extends State<businessPage> {
                                                   borderRadius: BorderRadius.circular(10),
                                                 ),
                                                 child: TextButton(
-                                                  child: Text(
+                                                  child: const Text(
                                                     'Add',
                                                     style: TextStyle(fontSize: 15 , color: Colors.white),
                                                   ),
                                                   onPressed: () {
-                                                    AwesomeDialog(
-                                                      width: 500,
-                                                      context: context,
-                                                      dialogType: DialogType.success,
-                                                      animType: AnimType.rightSlide,
-                                                      //title: '',
-                                                      desc: 'The operation was successful',
-                                                      //btnCancelOnPress: () {},
-                                                      btnOkOnPress: () {
-                                                        showDialog(
-                                                            context: context,
-                                                            builder: (BuildContext context) {
-                                                              return Dialog(
-                                                                shape: RoundedRectangleBorder(
-                                                                  borderRadius: BorderRadius.circular(20.0),
-                                                                ),
-                                                                child: Container(
-                                                                  width: 900,
-                                                                  height: 600,
-                                                                  padding: EdgeInsets.all(20.0),
-                                                                  child: SingleChildScrollView(
-                                                                    child: Column(
-                                                                      mainAxisSize: MainAxisSize.min,
+                                                    brunchController.text != '' ?
+                                                    showDialog(
+                                                        context: context,
+                                                        builder: (BuildContext context) {
+                                                          return Dialog(
+                                                            shape: RoundedRectangleBorder(
+                                                              borderRadius: BorderRadius.circular(20.0),
+                                                            ),
+                                                            child: Container(
+                                                              width: 900,
+                                                              height: 600,
+                                                              padding: const EdgeInsets.all(20.0),
+                                                              child: SingleChildScrollView(
+                                                                child: Column(
+                                                                  mainAxisSize: MainAxisSize.min,
+                                                                  children: [
+                                                                    Row(
                                                                       children: [
-                                                                        Row(
-                                                                          children: [
-                                                                            Text('Brunch Information', style: bigBlueTextStyle),
-                                                                          ],
-                                                                        ),
-                                                                        SizedBox(height: 15.0),
-                                                                        Padding(
-                                                                          padding:  const EdgeInsets.only(
-                                                                              left: 40
-                                                                          ),
-                                                                          child: Column(
-                                                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                                                              children: [
-                                                                                bidTitle('Brunch Name', smallBlueTextStyle),
-                                                                                SizedBox(height: 15.0),
-                                                                                Container(
-                                                                                  width: 400,
-                                                                                  child: TextField(
-                                                                                    controller: brunchNameController,
-                                                                                    decoration: InputDecoration(
-                                                                                      hintText: "Name",
-                                                                                      border: OutlineInputBorder(
-                                                                                        borderRadius: BorderRadius.circular(10),
-                                                                                        borderSide: BorderSide(color: Colors.grey),
-                                                                                      ),
-                                                                                      contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 15),
-                                                                                    ),
-                                                                                  ),
-                                                                                ),
-                                                                                SizedBox(height: 10.0),
-                                                                                Container(
-                                                                                  width: _width/1,
-                                                                                  height: _hight/1.5,
-                                                                                  decoration: BoxDecoration(
-                                                                                      color: Colors.pink,
-                                                                                      borderRadius: BorderRadius.circular(40)
-                                                                                  ),
-                                                                                )
-                                                                              ]
-                                                                          ),),
-                                                                        SizedBox(height: 30.0),
-                                                                        Center(
-                                                                          child: Row(
-                                                                            mainAxisAlignment: MainAxisAlignment.center,
-                                                                            children: [
-                                                                              Container(
-                                                                                width: 90,
-                                                                                height: 50,
-                                                                                decoration: BoxDecoration(
-                                                                                  color: Colors.red,
-                                                                                  borderRadius: BorderRadius.circular(10),
-                                                                                ),
-                                                                                child: TextButton(
-                                                                                  child: Text(
-                                                                                    'Cancel',
-                                                                                    style: TextStyle(fontSize: 15 , color: Colors.white),
-                                                                                  ),
-                                                                                  onPressed: () {
-                                                                                    Navigator.of(context).pop();
-                                                                                  },
-                                                                                ),
-                                                                              ),
-                                                                              SizedBox(
-                                                                                width: 30,
-                                                                              ),
-                                                                              Container(
-                                                                                width: 90,
-                                                                                height: 50,
-                                                                                decoration: BoxDecoration(
-                                                                                  color: Colors.blue.shade900,
-                                                                                  borderRadius: BorderRadius.circular(10),
-                                                                                ),
-                                                                                child: TextButton(
-                                                                                  child: Text(
-                                                                                    'Submit',
-                                                                                    style: TextStyle(fontSize: 15 , color: Colors.white),
-                                                                                  ),
-                                                                                  onPressed: () {
-                                                                                    AwesomeDialog(
-                                                                                      width: 500,
-                                                                                      context: context,
-                                                                                      dialogType: DialogType.success,
-                                                                                      animType: AnimType.rightSlide,
-                                                                                      //title: '',
-                                                                                      desc: 'The operation was successful',
-                                                                                      //btnCancelOnPress: () {},
-                                                                                      btnOkOnPress: () {},
-                                                                                    ).show();
-                                                                                  },
-                                                                                ),
-                                                                              ),
-                                                                            ],
-                                                                          ),
-                                                                        )
-
-
+                                                                        Text('Brunch Information', style: bigBlueTextStyle),
                                                                       ],
                                                                     ),
-                                                                  ),
+                                                                    const SizedBox(height: 15.0),
+                                                                    Padding(
+                                                                      padding:  const EdgeInsets.only(
+                                                                          left: 40
+                                                                      ),
+                                                                      child: Column(
+                                                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                                                          children: [
+                                                                            bidTitle('Brunch Name', smallBlueTextStyle),
+                                                                            const SizedBox(height: 15.0),
+                                                                            SizedBox(
+                                                                              width: 400,
+                                                                              child: TextField(
+                                                                                controller: brunchNameController,
+                                                                                onChanged: (val) {
+                                                                                  setState(() {
+                                                                                    brunchController.text = val ;
+                                                                                  });
+                                                                                },
+                                                                                decoration: InputDecoration(
+                                                                                  hintText: "Name",
+                                                                                  border: OutlineInputBorder(
+                                                                                    borderRadius: BorderRadius.circular(10),
+                                                                                    borderSide: const BorderSide(color: Colors.grey),
+                                                                                  ),
+                                                                                  contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 15),
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                            const SizedBox(height: 10.0),
+                                                                            Container(
+                                                                              width: _width/1,
+                                                                              height: _hight/1.5,
+                                                                              decoration: BoxDecoration(
+                                                                                  color: Colors.pink,
+                                                                                  borderRadius: BorderRadius.circular(40)
+                                                                              ),
+                                                                            )
+                                                                          ]
+                                                                      ),),
+                                                                    const SizedBox(height: 30.0),
+                                                                    Center(
+                                                                      child: Row(
+                                                                        mainAxisAlignment: MainAxisAlignment.center,
+                                                                        children: [
+                                                                          Container(
+                                                                            width: 90,
+                                                                            height: 50,
+                                                                            decoration: BoxDecoration(
+                                                                              color: Colors.red,
+                                                                              borderRadius: BorderRadius.circular(10),
+                                                                            ),
+                                                                            child: TextButton(
+                                                                              child: const Text(
+                                                                                'Cancel',
+                                                                                style: TextStyle(fontSize: 15 , color: Colors.white),
+                                                                              ),
+                                                                              onPressed: () {
+                                                                                Navigator.of(context).pop();
+                                                                              },
+                                                                            ),
+                                                                          ),
+                                                                          const SizedBox(
+                                                                            width: 30,
+                                                                          ),
+                                                                          Container(
+                                                                            width: 90,
+                                                                            height: 50,
+                                                                            decoration: BoxDecoration(
+                                                                              color: Colors.blue.shade900,
+                                                                              borderRadius: BorderRadius.circular(10),
+                                                                            ),
+                                                                            child: TextButton(
+                                                                              child: const Text(
+                                                                                'Submit',
+                                                                                style: TextStyle(fontSize: 15 , color: Colors.white),
+                                                                              ),
+                                                                              onPressed: () {
+                                                                                brunchNameController.text != '' ?
+                                                                                AwesomeDialog(
+                                                                                  width: 500,
+                                                                                  context: context,
+                                                                                  dialogType: DialogType.success,
+                                                                                  animType: AnimType.rightSlide,
+                                                                                  //title: '',
+                                                                                  desc: 'The operation was successful',
+                                                                                  //btnCancelOnPress: () {},
+                                                                                  btnOkOnPress: () {},
+                                                                                ).show() :
+                                                                                showDialog(
+                                                                                    context: context,
+                                                                                    builder: (BuildContext context) {
+                                                                                      return fillBlank(context);
+                                                                                    }
+                                                                                );
+                                                                              },
+                                                                            ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    )
+
+
+                                                                  ],
                                                                 ),
-                                                              );}
-                                                        );
-                                                      },
-                                                    ).show();
+                                                              ),
+                                                            ),
+                                                          );}
+                                                    ) : showDialog(
+                                                        context: context,
+                                                        builder: (BuildContext context) {
+                                                          return fillBlank(context);
+                                                        }
+                                                    );
                                                   },
                                                 ),
                                               ),
@@ -354,9 +371,9 @@ class _businessPageState extends State<businessPage> {
                                 );}
                           );
                         },
-                        child: Column(
+                        child: const Column(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children:const [
+                          children:[
                             Icon(Icons.local_cafe_outlined , size: 80,color: Colors.black,),
                             SizedBox(height: 70,),
                             Text('Half Million' , style: TextStyle(fontSize: 20,color: Colors.black,fontWeight: FontWeight.bold)),
@@ -364,7 +381,7 @@ class _businessPageState extends State<businessPage> {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 20,
                     ),
                     Container(
@@ -386,32 +403,32 @@ class _businessPageState extends State<businessPage> {
                                   child: Container(
                                     width: 500,
                                     height: 200,
-                                    padding: EdgeInsets.all(20.0),
+                                    padding: const EdgeInsets.all(20.0),
                                     child: Column(
                                       // mainAxisSize: MainAxisSize.min,
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
                                         Text('Select Brunch' ,style: smallGrayTextStyle),
-                                        SizedBox(height: 5),
+                                        const SizedBox(height: 5),
                                         Row(
                                           children: [
-                                            Container(
+                                            SizedBox(
                                               width: 400,
                                               child: TextField(
                                                 decoration: InputDecoration(
                                                   //hintText: "Name",
                                                   border: OutlineInputBorder(
                                                     borderRadius: BorderRadius.circular(10),
-                                                    borderSide: BorderSide(color: Colors.grey),
+                                                    borderSide: const BorderSide(color: Colors.grey),
                                                   ),
-                                                  contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 15),
+                                                  contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 15),
                                                 ),
                                               ),
                                             ),
                                           ],
                                         ),
-                                        SizedBox(
+                                        const SizedBox(
                                           height: 40,
                                         ),
                                         Center(
@@ -426,7 +443,7 @@ class _businessPageState extends State<businessPage> {
                                                   borderRadius: BorderRadius.circular(10),
                                                 ),
                                                 child: TextButton(
-                                                  child: Text(
+                                                  child: const Text(
                                                     'Cancel',
                                                     style: TextStyle(fontSize: 15 , color: Colors.white),
                                                   ),
@@ -435,7 +452,7 @@ class _businessPageState extends State<businessPage> {
                                                   },
                                                 ),
                                               ),
-                                              SizedBox(
+                                              const SizedBox(
                                                 width: 30,
                                               ),
                                               Container(
@@ -446,7 +463,7 @@ class _businessPageState extends State<businessPage> {
                                                   borderRadius: BorderRadius.circular(10),
                                                 ),
                                                 child: TextButton(
-                                                  child: Text(
+                                                  child: const Text(
                                                     'Add',
                                                     style: TextStyle(fontSize: 15 , color: Colors.white),
                                                   ),
@@ -473,9 +490,9 @@ class _businessPageState extends State<businessPage> {
                                 );}
                           );
                         },
-                        child: Column(
+                        child: const Column(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
+                          children: [
                             Icon(Icons.restaurant_outlined , size: 80, color: Colors.black,),
                             SizedBox(height: 70,),
                             Text('Sign' , style: TextStyle(fontSize: 20,color: Colors.black,fontWeight: FontWeight.bold)),
@@ -491,8 +508,8 @@ class _businessPageState extends State<businessPage> {
                     height: _hight,
                     width: _width,
                   child: GridView.builder(
-                    padding: EdgeInsets.all(16),
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    padding: const EdgeInsets.all(16),
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       crossAxisSpacing: 20,
                       mainAxisSpacing: 20,
@@ -534,7 +551,7 @@ class _businessPageState extends State<businessPage> {
                                                   borderRadius: BorderRadius.circular(10),
                                                 ),
                                                 child: TextButton(
-                                                  child: Text(
+                                                  child: const Text(
                                                     'Delete',
                                                     style: TextStyle(fontSize: 15 , color: Colors.white),
                                                   ),
@@ -543,7 +560,7 @@ class _businessPageState extends State<businessPage> {
                                                   },
                                                 ),
                                               ),
-                                              SizedBox(
+                                              const SizedBox(
                                                 width: 30,
                                               ),
                                               Container(
@@ -554,7 +571,7 @@ class _businessPageState extends State<businessPage> {
                                                   borderRadius: BorderRadius.circular(10),
                                                 ),
                                                 child: TextButton(
-                                                  child: Text(
+                                                  child: const Text(
                                                     'Edit',
                                                     style: TextStyle(fontSize: 15 , color: Colors.white),
                                                   ),
@@ -607,7 +624,7 @@ class _businessPageState extends State<businessPage> {
 
                                           ),
                                           child: Center(
-                                            child: Text("map here44 $index", style: TextStyle(color: Colors.black)),
+                                            child: Text("map here44 $index", style: const TextStyle(color: Colors.black)),
                                           ),
                                         ),
                                       ),
@@ -615,7 +632,7 @@ class _businessPageState extends State<businessPage> {
                                     const SizedBox(
                                       height: 20,
                                     ),
-                                    Center(child: Padding(
+                                    const Center(child: Padding(
                                       padding: EdgeInsets.only(
                                           bottom: 5
                                       ),
@@ -631,13 +648,13 @@ class _businessPageState extends State<businessPage> {
                     },
                   ),
                 ) : dropDownValue == 'Monthly' ?
-                reviews()
+                const reviews()
                   : SizedBox(
                   height: _hight,
                   width: _width,
                   child: GridView.builder(
-                    padding: EdgeInsets.all(16),
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    padding: const EdgeInsets.all(16),
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       crossAxisSpacing: 20,
                       mainAxisSpacing: 20,
@@ -681,7 +698,7 @@ class _businessPageState extends State<businessPage> {
                                                     borderRadius: BorderRadius.circular(10),
                                                   ),
                                                   child: TextButton(
-                                                    child: Text(
+                                                    child: const Text(
                                                       'Delete',
                                                       style: TextStyle(fontSize: 15 , color: Colors.white),
                                                     ),
@@ -690,7 +707,7 @@ class _businessPageState extends State<businessPage> {
                                                     },
                                                   ),
                                                 ),
-                                                SizedBox(
+                                                const SizedBox(
                                                   width: 30,
                                                 ),
                                                 Container(
@@ -701,7 +718,7 @@ class _businessPageState extends State<businessPage> {
                                                     borderRadius: BorderRadius.circular(10),
                                                   ),
                                                   child: TextButton(
-                                                    child: Text(
+                                                    child: const Text(
                                                       'Edit',
                                                       style: TextStyle(fontSize: 15 , color: Colors.white),
                                                     ),
@@ -754,7 +771,7 @@ class _businessPageState extends State<businessPage> {
 
                                             ),
                                             child: Center(
-                                              child: Text("map here44 $index", style: TextStyle(color: Colors.black)),
+                                              child: Text("map here44 $index", style: const TextStyle(color: Colors.black)),
                                             ),
                                           ),
                                         ),
@@ -762,7 +779,7 @@ class _businessPageState extends State<businessPage> {
                                       const SizedBox(
                                         height: 20,
                                       ),
-                                      Center(child: Padding(
+                                      const Center(child: Padding(
                                         padding: EdgeInsets.only(
                                             bottom: 5
                                         ),

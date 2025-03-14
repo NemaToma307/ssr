@@ -5,6 +5,8 @@ import 'package:ssr_project/component/style/size_colors.dart';
 import '../../component/widgets/widgets.dart';
 
 class facilities extends StatefulWidget {
+  const facilities({Key? key}) : super(key: key);
+
 
   @override
   State<facilities> createState() => _facilitiesState();
@@ -13,6 +15,7 @@ class facilities extends StatefulWidget {
 class _facilitiesState extends State<facilities> {
 
   String selectedButton = 'Facilities';
+  bool isSelected = false;
 
   @override
   void initState() {
@@ -37,7 +40,7 @@ class _facilitiesState extends State<facilities> {
           //     children: [],
           //   ),
           // ),
-          SizedBox(
+          const SizedBox(
             width: 80,
           ),
           SingleChildScrollView(
@@ -60,7 +63,7 @@ class _facilitiesState extends State<facilities> {
                       width: _width/3,
                       decoration: BoxDecoration(
                         color:  selectedButton == 'Facilities' ? Colors.blue.shade100 : Colors.blue.shade50,
-                        borderRadius: BorderRadius.only(
+                        borderRadius: const BorderRadius.only(
                             topLeft: Radius.circular(20),
                             topRight: Radius.circular(20)
                         ),
@@ -73,7 +76,7 @@ class _facilitiesState extends State<facilities> {
                           });
 
                         },
-                        child: Text('Facilities' , style: TextStyle(fontSize: 14,color: Colors.black , fontWeight: FontWeight.bold),),
+                        child: const Text('Facilities' , style: TextStyle(fontSize: 14,color: Colors.black , fontWeight: FontWeight.bold),),
                       ),
                     ),
                     Container(
@@ -81,7 +84,7 @@ class _facilitiesState extends State<facilities> {
                       width: _width/3,
                       decoration: BoxDecoration(
                         color: selectedButton == 'Dynamics' ? Colors.blue.shade100 : Colors.blue.shade50,
-                        borderRadius: BorderRadius.only(
+                        borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(20),
                           topRight: Radius.circular(20)
                         ),
@@ -92,7 +95,7 @@ class _facilitiesState extends State<facilities> {
                             selectedButton = 'Dynamics';
                           });
                         },
-                        child: Text('Dynamics' , style: TextStyle(fontSize: 14,color: Colors.black , fontWeight: FontWeight.bold),),
+                        child: const Text('Dynamics' , style: TextStyle(fontSize: 14,color: Colors.black , fontWeight: FontWeight.bold),),
                       ),
                     )
                   ],
@@ -100,7 +103,7 @@ class _facilitiesState extends State<facilities> {
                 Container(
                 width: _width/1.5,
                 height: _hight/1.5,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     color: Colors.pink,
                     borderRadius: BorderRadius.only(
                       bottomRight: Radius.circular(40),
@@ -109,7 +112,7 @@ class _facilitiesState extends State<facilities> {
                 ),
 
                   ),
-                SizedBox(
+                const SizedBox(
                   height: 9,
                 ),
                 Center(
@@ -132,7 +135,7 @@ class _facilitiesState extends State<facilities> {
       ),
     );
   }
-
+  IconData? selectedIcon;
   Widget facilities (icon)=> Padding(
     padding: const EdgeInsets.all(7.0),
     child: Container(
@@ -140,16 +143,21 @@ class _facilitiesState extends State<facilities> {
       width: 130,
       decoration: BoxDecoration(
         shape: BoxShape.rectangle,
+       // color: selectedIcon == icon ? Colors.blue.withOpacity(0.3) : Colors.transparent,
         border: Border.all(
-          width: 2,
-          color: Colors.black,
+          width: 3,
+          color: selectedIcon == icon ? Colors.blue : darkBlueColor,
         ),
         borderRadius: BorderRadius.circular(10)
 
       ),
-      child: TextButton(
-        child: Icon(icon , size: 45,),
-        onPressed: () {  },
+      child: GestureDetector(
+        child: Icon(icon , size: 45, color: selectedIcon == icon ? Colors.blue : darkBlueColor,),
+        onTap: () {
+          setState(() {
+            selectedIcon = icon;
+          });
+        },
       ),
     ),
   );
