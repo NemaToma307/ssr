@@ -111,7 +111,7 @@ class _placePageState extends State<placePage> {
             children: [
               Padding(
                 padding: const EdgeInsets.only(top: 15),
-                child: AppBarName('UserName')
+                child: appBarName('UserName')
               ),
               const SizedBox(
                 height: 30,
@@ -307,20 +307,3 @@ class _placePageState extends State<placePage> {
 
 
 
-// void registerIFrame() {
-//   // إنشاء عنصر iframe
-//   html.IFrameElement iframe = html.IFrameElement()
-//     ..src = "assets/map.html" // تحميل ملف الخريطة من assets
-//     ..style.border = "none"
-//     ..style.width = "100%"
-//     ..style.height = "100%";
-//
-//   // تسجيل العنصر باستخدام `setUrlStrategy`
-//   setUrlStrategy(PathUrlStrategy());
-//
-//   // تسجيل iframe في Flutter Web
-//   platformViewRegistry.registerViewFactory(
-//     'iframeElement',
-//         (int viewId) => iframe,
-//   );
-// }

@@ -248,7 +248,7 @@ class _reviewsState extends State<reviews> {
                                                                                         const SizedBox(
                                                                                           height: 15,
                                                                                         ),
-                                                                                        Name(),
+                                                                                        name(),
                                                                                       ],
                                                                                     ),
                                                                                   ),
@@ -334,9 +334,9 @@ class _reviewsState extends State<reviews> {
                                                                                           ),
                                                                                         ),
                                                                                         const SizedBox(
-                                                                                          height: 15,
+                                                                                          height: 10,
                                                                                         ),
-                                                                                        Name()
+                                                                                        name()
                                                                                       ],
                                                                                     ),
                                                                                   ),

@@ -36,6 +36,12 @@ dependencies:
   cupertino_icons: ^1.0.2
   awesome_dialog:
   fl_chart:
+  bloc:
+  flutter_bloc:
+  dio:
+
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

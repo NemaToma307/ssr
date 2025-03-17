@@ -32,16 +32,8 @@ class _facilitiesState extends State<facilities> {
     return Scaffold(
       body: Row(
         children: [
-          // Padding(
-          //   padding: const EdgeInsets.only(left: 20),
-          //   child: Column(
-          //     // crossAxisAlignment: CrossAxisAlignment.center,
-          //     mainAxisAlignment: MainAxisAlignment.center,
-          //     children: [],
-          //   ),
-          // ),
-          const SizedBox(
-            width: 80,
+           SizedBox(
+            width: _width/15,
           ),
           SingleChildScrollView(
             child: Column(
@@ -50,7 +42,7 @@ class _facilitiesState extends State<facilities> {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(top: 15),
-                  child: AppBarName('UserName'),
+                  child: appBarName('UserName'),
                 ),
                 const SizedBox(
                   height: 30,
@@ -118,13 +110,13 @@ class _facilitiesState extends State<facilities> {
                 Center(
                   child: Row(
                     children: [
-                      facilities(Icons.local_hospital_outlined ),
-                      facilities(Icons.train_outlined),
-                      facilities(Icons.hotel),
-                      facilities(Icons.local_police),
-                      facilities(Icons.book),
-                      facilities(Icons.business ),
-                      facilities(Icons.airplanemode_on),
+                      facilities(Icons.local_hospital_outlined ,_hight ,_width ,0 ,'hospital'),
+                      facilities(Icons.train_outlined,_hight ,_width ,1,'train' ),
+                      facilities(Icons.hotel,_hight ,_width ,2 , 'hotel'),
+                      facilities(Icons.local_police,_hight ,_width , 3,'police' ),
+                      facilities(Icons.book,_hight ,_width , 4 ,'book'),
+                      facilities(Icons.business ,_hight ,_width  ,5 , 'business'),
+                      facilities(Icons.airplanemode_on,_hight ,_width ,6 , 'airplanemode'),
                     ],
                   ),
                 ),
@@ -136,11 +128,11 @@ class _facilitiesState extends State<facilities> {
     );
   }
   IconData? selectedIcon;
-  Widget facilities (icon)=> Padding(
+  Widget facilities (icon ,_height ,_width ,index , name )=> Padding(
     padding: const EdgeInsets.all(7.0),
     child: Container(
-      height: 130,
-      width: 130,
+      height: _height/5,
+      width: _width/12,
       decoration: BoxDecoration(
         shape: BoxShape.rectangle,
        // color: selectedIcon == icon ? Colors.blue.withOpacity(0.3) : Colors.transparent,
@@ -157,6 +149,7 @@ class _facilitiesState extends State<facilities> {
           setState(() {
             selectedIcon = icon;
           });
+          print( name );
         },
       ),
     ),

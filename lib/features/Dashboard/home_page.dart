@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:ssr_project/component/widgets/widgets.dart';
 import 'package:ssr_project/features/Dynamic_Facilities/facilities.dart';
-import 'package:ssr_project/features/place_ecommendation/place_page.dart';
+import 'package:ssr_project/features/place_recommendation/place_page.dart';
 
 import '../my_business/business_page.dart';
 import '../setting/setting_section.dart';
