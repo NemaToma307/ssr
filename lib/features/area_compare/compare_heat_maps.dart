@@ -136,7 +136,7 @@ class _compareHeatMapState extends State<compareHeatMap> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                 AppBarName('User Name'),
+                 appBarName('User Name'),
                   const SizedBox(
                     height: 30,
                   ),
@@ -261,7 +261,7 @@ class _compareHeatMapState extends State<compareHeatMap> {
                                 ),
                               ),
                             ),
-                            Center(child: Name())
+                            Center(child: name())
                           ],
                         ),
                       ),
@@ -373,7 +373,7 @@ class _compareHeatMapState extends State<compareHeatMap> {
                                 ),
                               ),
                             ),
-                            Name()
+                            name()
                           ],
                         ),
                       )

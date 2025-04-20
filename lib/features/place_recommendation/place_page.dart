@@ -6,11 +6,14 @@
 // //import 'dart:ui';
 // import 'package:awesome_dialog/awesome_dialog.dart';
 // //import 'dart:ui' as ui; // استيراد ui platform view
+import 'dart:convert' show Encoding;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show rootBundle;
 import 'package:ssr_project/component/style/size_colors.dart';
-
+import 'package:ssr_project/test_map.dart' show LocalHtmlMapView;
 import '../../component/widgets/widgets.dart';
 import 'business_form.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
 class placePage extends StatefulWidget {
   const placePage({Key? key}) : super(key: key);
@@ -34,11 +37,15 @@ class _placePageState extends State<placePage> {
   ];
 
   var dropDownValue = 'Sign';
+  // String _getLocalMapUrl() {
+  //   // Replace with the path to your local map file
+  //   return 'C:\Users\VISION\Downloads\Telegram Desktop\riyadh_heatmap.html';
+  // }
 
-
+  final String htmlPath = 'assets/riyadh_heatmap.html';
 
   @override
-  Widget build(BuildContext context) {
+ Widget build(BuildContext context)  {
     var _width = MediaQuery.of(context).size.width/2;
     var _hight = MediaQuery.of(context).size.height/1.5;
     return Row(
@@ -108,7 +115,7 @@ class _placePageState extends State<placePage> {
           child: Column(
             // mainAxisAlignment: MainAxisAlignment.start,
             // crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+            children:[
               Padding(
                 padding: const EdgeInsets.only(top: 15),
                 child: appBarName('UserName')
@@ -196,12 +203,14 @@ class _placePageState extends State<placePage> {
                       width: _width*1.2,
                       height: _hight,
                       decoration: const BoxDecoration(
-                          color: Colors.pink,
+                         // color: Colors.pink,
                           borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(40),
                             bottomRight: Radius.circular(40),
                           )
                       ),
+                      child: LocalHtmlMapView(),
+
                       // child: ClipRRect(
                       //   borderRadius: BorderRadius.only(
                       //     bottomLeft: Radius.circular(40),
@@ -290,6 +299,7 @@ class _placePageState extends State<placePage> {
 
 
 }
+
 // اللي شغال
 // void registerIFrame() {
 //   html.IFrameElement iframe = html.IFrameElement()

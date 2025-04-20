@@ -64,7 +64,7 @@ class _heatMapState extends State<heatMap> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  AppBarName('UserName'),
+                  appBarName('UserName'),
                   const SizedBox(
                     height: 30,
                   ),

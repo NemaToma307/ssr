@@ -39,6 +39,8 @@ dependencies:
   bloc:
   flutter_bloc:
   dio:
+  #webview_flutter: ^4.10.0
+  flutter_inappwebview:
 
 
 
